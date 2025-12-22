@@ -46,9 +46,6 @@ This project bundles fonts downloaded from Google:
 | Noto Sans JP | SIL Open Font License 1.1 | Japanese text |
 | NotoSansSymbols2 | SIL Open Font License 1.1 | Monochrome emojis |
 
-**Important:**
-This project itself is licensed under **GNU Affero General Public License v3.0 (AGPL-3.0)**, which requires that any service exposing this code over a network must provide source code.
-
 **Font usage note:**
 - English or common Latin text can use standard PDF fonts (Helvetica, Times-Roman, etc.) automatically.
 - Japanese text or Unicode emojis require the bundled NotoSans fonts.
