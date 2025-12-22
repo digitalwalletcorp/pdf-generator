@@ -25,11 +25,11 @@ public class PdfGeneratorController {
 
         byte[] pdf = service.generate(request);
 
+        HttpHeaders headers = new HttpHeaders();
+        headers.add(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"generated.pdf\"");
+        headers.add("X-License", "This PDF is generated using iText7 (AGPL)");
         return ResponseEntity.ok()
-            .header(
-                HttpHeaders.CONTENT_DISPOSITION,
-                "inline; filename=\"generated.pdf\""
-            )
+            .headers(headers)
             .body(pdf);
     }
 }
