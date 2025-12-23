@@ -35,6 +35,8 @@ public class PdfGeneratorService {
             if (request.getSize() != null) {
                 pageSize = request.getSize().toITextPageSize();
                 if (Orientation.LANDSCAPE.equals((request.getOrientation()))) {
+                    // pageが指定されている場合のみorientationの指定が有効になる
+                    // pageの指定がない場合はorientationの指定は無視される
                     pageSize = pageSize.rotate();
                 }
                 pdfDocument.setDefaultPageSize(pageSize);

@@ -52,6 +52,32 @@ This project bundles fonts downloaded from Google:
 
 ---
 
+### 🔌 API Specification
+
+#### EndPoint
+
+`POST /api/v1/pdf-generator`
+
+This endpoint generates a PDF document from the provided HTML content and returns the PDF binary.
+
+#### Request Body (JSON)
+
+| Field          | Type   | Required | Description |
+|----------------|--------|----------|-------------|
+| `html`         | string | Yes      | Fully rendered HTML content. Dynamic processing such as data binding, loops, or templating is **not** supported. |
+| `page`         | string | No       | Page size override. Supported values: `A3`, `A4`, `A5`, `LETTER`. Normally controlled via CSS `@page`, but provided as a fallback when the HTML cannot be modified. |
+| `orientation`  | string | No       | Page orientation. Supported values: `PORTRAIT`, `LANDSCAPE`. Normally controlled via CSS `@page`, but provided as a fallback option. This parameter is applied **only when `page` is explicitly specified**; if `page` is omitted, the orientation value is ignored. |
+
+#### Response
+
+* Content-Type: application/pdf
+* Body: PDF binary stream
+* Headers:
+    * Content-Disposition: inline; filename="generated.pdf"
+    * X-License: AGPL (iText7)
+
+---
+
 ### 🚀 Quick Start
 
 #### Build
